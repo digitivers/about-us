@@ -10,39 +10,38 @@
 <style>html{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
 <style>
-/* About Us prototype. Same system as compare-passes: Inter Tight / Inter / Plex Mono, ITP red-blue, mono "record" labels.
+/* About Us. Typography follows istanbultouristpass.com (measured 19 Oct 2026): Inter only, weights 400-800,
+   h1 800 / h2 700 / h3 700, uppercase Inter labels, pill buttons 14px/600. ITP red-blue palette.
    Signature element: the timeline is drawn as an Istanbul transit line (istanbul.com blue line becomes the ITP red line in 2014).
    Single light theme on purpose: it mirrors istanbultouristpass.com. */
 :root{
-  --ink:#1c2028; --text:#474c55; --muted:#737882; --line:#e5e5e1; --line-strong:#cfcfca;
+  --ink:#000; --text:#4f4f4f; --muted:#737373; --line:#e5e5e1; --line-strong:#cfcfca;
   --paper:#ffffff; --mist:#f6f6f3; --mist-2:#efefeb;
   --itp-red:#f0034e; --itp-red-dk:#c70241; --itp-blue:#3eb0de; --itp-blue-dk:#1f8fbd; --itp-orange:#ff7711;
   --ok:#00864a; --ok-bg:#e8f6ee;
   --wa:#128c4a;
   --note:#fff3bf; --note-ink:#5a4500; --note-line:#f0d66e;
   --bar:#15181e; --bar-fg:#f4f4f2; --bar-muted:#a9adb5;
-  --font-display:"Inter Tight","Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
-  --font-body:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
-  --font-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  --font:Inter,"Inter Fallback",system-ui,-apple-system,"Segoe UI",sans-serif;
   --r:10px; --wrap:1120px;
   color-scheme:light;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
-body{background:var(--paper);color:var(--text);font:400 16px/1.6 var(--font-body);-webkit-font-smoothing:antialiased}
+body{background:var(--paper);color:var(--text);font:400 16px/1.6 var(--font);-webkit-font-smoothing:antialiased}
 a{color:var(--ink);text-decoration-color:var(--line-strong);text-underline-offset:3px}
 a:hover{text-decoration-color:var(--itp-red)}
 :focus-visible{outline:3px solid var(--itp-blue);outline-offset:2px;border-radius:4px}
-h1,h2,h3{font-family:var(--font-display);color:var(--ink);text-wrap:balance;margin:0;letter-spacing:-.02em}
-h1{font-size:clamp(2.1rem,4.6vw,3.4rem);line-height:1.05;font-weight:800}
-h2{font-size:clamp(1.55rem,3vw,2.15rem);line-height:1.12;font-weight:800}
-h3{font-size:1.08rem;line-height:1.3;font-weight:700;letter-spacing:-.01em}
+h1,h2,h3{font-family:var(--font);color:var(--ink);text-wrap:balance;margin:0}
+h1{font-size:clamp(2.1rem,4.4vw,2.875rem);line-height:1.12;font-weight:800;letter-spacing:-.02em}
+h2{font-size:clamp(1.6rem,3vw,2.25rem);line-height:1.2;font-weight:700}
+h3{font-size:1.0625rem;line-height:1.4;font-weight:700}
 p{margin:0}
 .wrap{max-width:var(--wrap);margin:0 auto;padding-inline:20px}
-.eyebrow{font:600 .74rem/1.2 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.eyebrow{font:800 .75rem/1.5 var(--font);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 .section{padding-block:72px;border-top:1px solid var(--line)}
 .section-head{display:grid;gap:12px;max-width:760px;margin-bottom:32px}
 .section-head p{max-width:65ch}
@@ -52,9 +51,9 @@ p{margin:0}
 /* ---------- Prototype bar ---------- */
 .protobar{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:55;background:var(--bar);color:var(--bar-fg);border-radius:999px;box-shadow:0 8px 28px rgba(0,0,0,.28);width:max-content;max-width:calc(100% - 24px)}
 .protobar .wrap{display:flex;align-items:center;gap:14px;padding:9px 14px 9px 18px;max-width:none}
-.protobar .tag{font:600 .7rem/1 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--bar-muted)}
+.protobar .tag{font:700 .7rem/1 var(--font);letter-spacing:.08em;text-transform:uppercase;color:var(--bar-muted)}
 .protobar .tag b{color:var(--itp-orange);font-weight:600}
-.switch{display:inline-flex;align-items:center;gap:8px;font:500 .8rem/1 var(--font-body);color:var(--bar-fg);cursor:pointer}
+.switch{display:inline-flex;align-items:center;gap:8px;font:500 .8rem/1 var(--font);color:var(--bar-fg);cursor:pointer}
 .switch input{appearance:none;width:34px;height:20px;border-radius:999px;background:#3a3f4a;position:relative;cursor:pointer;margin:0}
 .switch input::after{content:"";position:absolute;top:3px;left:3px;width:14px;height:14px;border-radius:50%;background:var(--bar-fg);transition:transform .15s}
 .switch input:checked{background:var(--itp-orange)}
@@ -67,12 +66,12 @@ p{margin:0}
 section[id]{scroll-margin-top:96px}
 
 /* ---------- Review notes ---------- */
-.note{display:none;background:var(--note);color:var(--note-ink);border:1px solid var(--note-line);border-radius:8px;padding:10px 12px;font:500 .82rem/1.45 var(--font-body)}
+.note{display:none;background:var(--note);color:var(--note-ink);border:1px solid var(--note-line);border-radius:8px;padding:10px 12px;font:500 .82rem/1.45 var(--font)}
 .note b{font-weight:700}
 body.review .note{display:block}
 
 /* ---------- Buttons ---------- */
-.btn{display:inline-flex;align-items:center;gap:8px;font:700 .95rem/1 var(--font-body);text-decoration:none;border-radius:999px;padding:13px 20px;border:1.5px solid transparent;cursor:pointer}
+.btn{display:inline-flex;align-items:center;gap:8px;font:600 .875rem/1.5 var(--font);text-decoration:none;border-radius:50px;padding:11px 24px;border:1.5px solid transparent;cursor:pointer}
 .btn-primary{background:var(--itp-red);color:#fff}
 .btn-primary:hover{background:var(--itp-red-dk)}
 .btn-ghost{border-color:var(--line-strong);color:var(--ink);background:var(--paper)}
@@ -80,7 +79,7 @@ body.review .note{display:block}
 .btn-light{background:#fff;color:var(--ink)}
 
 /* ---------- Breadcrumb + Hero ---------- */
-.crumbs{padding-top:22px;font:500 .82rem/1.3 var(--font-body);color:var(--muted)}
+.crumbs{padding-top:22px;font:500 .82rem/1.3 var(--font);color:var(--muted)}
 .crumbs ol{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
 .crumbs li+li::before{content:"›";margin-right:6px;color:var(--line-strong)}
 .crumbs a{color:var(--muted);text-decoration:none}
@@ -90,14 +89,14 @@ body.review .note{display:block}
 .hero-copy{display:grid;gap:22px;min-width:0}
 .answer{border-left:3px solid var(--itp-red);padding:4px 0 4px 18px;font-size:1.08rem;line-height:1.62;color:var(--ink);max-width:60ch}
 .hero-ctas{display:flex;flex-wrap:wrap;gap:12px}
-.trust{display:flex;flex-wrap:wrap;gap:8px 18px;font:500 .84rem/1.3 var(--font-body);color:var(--muted)}
+.trust{display:flex;flex-wrap:wrap;gap:8px 18px;font:500 .84rem/1.3 var(--font);color:var(--muted)}
 .trust span{display:inline-flex;align-items:center;gap:6px}
 .trust svg{width:14px;height:14px;color:var(--ok)}
 .record{position:relative;background:var(--mist);border:1px solid var(--line);border-radius:14px;padding:22px 22px 18px;min-width:0}
-.record h2{font:600 .74rem/1.2 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.record h2{font:700 .75rem/1.2 var(--font);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
 .record dl{margin:0;display:grid}
 .record .rrow{display:grid;grid-template-columns:118px minmax(0,1fr);gap:12px;padding-block:10px;border-top:1px dashed var(--line-strong)}
-.record dt{font:600 .7rem/1.5 var(--font-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.record dt{font:700 .7rem/1.5 var(--font);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
 .record dd{margin:0;font-weight:600;color:var(--ink);min-width:0;overflow-wrap:anywhere}
 .record dd small{display:block;font-weight:500;color:var(--text);font-size:.84rem}
 .record .note{margin-top:10px}
@@ -108,8 +107,8 @@ body.review .note{display:block}
 .stats{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:2px solid var(--ink);border-bottom:1px solid var(--line)}
 .stats li{padding:20px 18px 20px 0;display:grid;gap:4px;min-width:0}
 .stats li+li{padding-left:18px;border-left:1px solid var(--line)}
-.stats .n{font:800 clamp(1.9rem,3.6vw,2.6rem)/1 var(--font-display);letter-spacing:-.03em;color:var(--ink)}
-.stats .k{font:600 .7rem/1.3 var(--font-mono);letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.stats .n{font:800 clamp(1.9rem,3.6vw,2.5rem)/1.1 var(--font);letter-spacing:-.02em;color:var(--ink)}
+.stats .k{font:700 .75rem/1.3 var(--font);letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
 .stats-wrap{padding-bottom:8px}
 .stats-wrap .note{margin-top:12px}
 @media (max-width:760px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.stats li:nth-child(3){padding-left:0;border-left:none}.stats li:nth-child(n+3){border-top:1px solid var(--line)}}
@@ -122,25 +121,25 @@ body.review .note{display:block}
 .seal-col{display:grid;gap:18px;justify-items:start}
 .seal{width:188px;height:188px;border-radius:50%;border:2px solid var(--itp-red);display:grid;place-items:center;text-align:center;position:relative;transform:rotate(-8deg);background:var(--paper)}
 .seal::before{content:"";position:absolute;inset:8px;border-radius:50%;border:1px dashed var(--itp-red)}
-.seal span{font:700 .78rem/1.35 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--itp-red);padding:18px}
-.seal b{display:block;font:800 2rem/1 var(--font-display);letter-spacing:-.02em;margin:6px 0}
-.idea{border-left:3px solid var(--itp-blue);padding:6px 0 6px 18px;font:700 clamp(1.2rem,2.2vw,1.45rem)/1.3 var(--font-display);color:var(--ink);letter-spacing:-.01em;max-width:30ch}
-.idea-by{font:600 .72rem/1.2 var(--font-mono);letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.seal span{font:800 .78rem/1.35 var(--font);letter-spacing:.08em;text-transform:uppercase;color:var(--itp-red);padding:18px}
+.seal b{display:block;font:800 2rem/1 var(--font);letter-spacing:-.02em;margin:6px 0}
+.idea{border-left:3px solid var(--itp-blue);padding:6px 0 6px 18px;font:700 clamp(1.2rem,2.2vw,1.4rem)/1.35 var(--font);color:var(--ink);max-width:30ch}
+.idea-by{font:700 .75rem/1.2 var(--font);letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
 @media (max-width:860px){.who{grid-template-columns:1fr}.seal-col{grid-template-columns:auto minmax(0,1fr);align-items:center;gap:24px}.seal{width:132px;height:132px}.seal b{font-size:1.5rem}.seal span{font-size:.66rem;padding:12px}}
 @media (max-width:480px){.seal-col{grid-template-columns:1fr}}
 
 /* ---------- Timeline: a transit line ---------- */
-.line-legend{display:flex;flex-wrap:wrap;gap:8px 18px;margin-bottom:26px;font:600 .74rem/1.2 var(--font-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.line-legend{display:flex;flex-wrap:wrap;gap:8px 18px;margin-bottom:26px;font:700 .75rem/1.2 var(--font);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
 .line-legend span{display:inline-flex;align-items:center;gap:8px}
 .line-legend i{display:inline-block;width:26px;height:6px;border-radius:3px}
 .line-legend .lb i{background:var(--itp-blue)}.line-legend .lr i{background:var(--itp-red)}
-ol.route{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr))}
+ol.route{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));row-gap:34px}
 .stop{position:relative;display:grid;grid-template-rows:30px 28px auto;padding-right:18px;min-width:0}
 .stop::before{content:"";position:absolute;top:41px;left:12px;right:0;height:6px;background:var(--itp-red);z-index:0}
 .stop.b::before{background:var(--itp-blue)}
 .stop.x .dot{box-shadow:0 0 0 3px #fff,0 0 0 6px var(--itp-blue)}
-.stop:last-child::before{display:none}
-.yr{font:700 .95rem/1 var(--font-mono);color:var(--ink);align-self:end;padding-bottom:8px;letter-spacing:.02em}
+.stop:nth-child(4n)::before{display:none}
+.yr{font:800 1rem/1 var(--font);color:var(--ink);align-self:end;padding-bottom:8px;font-variant-numeric:tabular-nums}
 .yr.tbc{justify-self:start;align-self:center;font-size:.7rem;color:#a24600;border:1.5px dashed #ffb27a;background:#fff4ea;border-radius:999px;padding:4px 9px;margin-bottom:6px}
 .dot{position:relative;z-index:1;width:28px;height:28px;border-radius:50%;background:#fff;border:6px solid var(--itp-red)}
 .stop.b .dot{border-color:var(--itp-blue)}
@@ -148,12 +147,14 @@ ol.route{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:r
 .stop-body{padding-top:16px;display:grid;gap:6px;align-content:start}
 .stop-body h3{font-size:1rem}
 .stop-body p{font-size:.9rem;line-height:1.5}
-.stop-body .src{font:500 .74rem/1.3 var(--font-mono);color:var(--muted)}
+.stop-body .src{font:500 .74rem/1.3 var(--font);color:var(--muted)}
 .route-note{margin-top:22px}
 @media (max-width:900px){
   ol.route{grid-template-columns:1fr;gap:0}
   .stop{grid-template-columns:28px minmax(0,1fr);grid-template-rows:auto;column-gap:18px;padding:0 0 26px}
   .stop::before{top:14px;bottom:0;left:11px;right:auto;width:6px;height:auto}
+  .stop:nth-child(4n)::before{display:block}
+  .stop:last-child::before{display:none}
   .stop.now{padding-bottom:0}
   .dot{grid-column:1;grid-row:1}
   .yr{grid-column:2;grid-row:1;align-self:center;padding:0}
@@ -169,21 +170,21 @@ ol.route{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:r
 .ticks li::before{content:"";position:absolute;left:2px;top:.4em;width:14px;height:8px;border-left:2.5px solid var(--ok);border-bottom:2.5px solid var(--ok);transform:rotate(-45deg)}
 .steps{margin:0;padding:0;list-style:none;display:grid;gap:0;counter-reset:s;border-top:2px solid var(--ink)}
 .steps li{counter-increment:s;display:grid;grid-template-columns:44px minmax(0,1fr);gap:4px 14px;padding-block:16px;border-bottom:1px solid var(--line)}
-.steps li::before{content:counter(s,decimal-leading-zero);grid-row:span 2;font:700 .95rem/1.5 var(--font-mono);color:var(--itp-red)}
+.steps li::before{content:counter(s,decimal-leading-zero);grid-row:span 2;font:800 .95rem/1.5 var(--font);color:var(--itp-red)}
 .steps h3{font-size:1rem}
 .steps p{font-size:.93rem}
-.subhead{font:600 .74rem/1.2 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+.subhead{font:700 .75rem/1.2 var(--font);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
 .two .note{margin-top:12px}
 @media (max-width:860px){.two{grid-template-columns:1fr;gap:36px}}
 
 .formats-head{margin-top:28px}
 .formats{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
 .formats li{border:1px solid var(--line);border-radius:12px;padding:14px;display:grid;gap:4px;align-content:start;min-width:0}
-.formats b{font:700 .95rem/1.25 var(--font-display);color:var(--ink)}
+.formats b{font:700 .95rem/1.25 var(--font);color:var(--ink)}
 .formats span{font-size:.86rem;line-height:1.4}
 .formats-foot{margin-top:10px;font-size:.9rem;color:var(--muted)}
 @media (max-width:560px){.formats{grid-template-columns:1fr}}
-.seal small{display:block;font:600 .62rem/1.3 var(--font-mono);letter-spacing:.06em;margin-top:2px}
+.seal small{display:block;font:700 .62rem/1.3 var(--font);letter-spacing:.06em;margin-top:2px}
 
 /* ---------- Support ---------- */
 .help{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:14px}
@@ -191,7 +192,7 @@ ol.route{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:r
 .help-main .eyebrow{color:#c9f0d9}
 .help-main h3{color:#fff;font-size:clamp(1.5rem,2.6vw,1.9rem);font-weight:800}
 .help-main p{color:#e6f7ed}
-.help-main .big{font:700 1.25rem/1.2 var(--font-mono);color:#fff;letter-spacing:.01em;user-select:all}
+.help-main .big{font:700 1.3rem/1.2 var(--font);color:#fff;font-variant-numeric:tabular-nums;user-select:all}
 .help-main a{color:#fff}
 .help-side{display:grid;gap:14px}
 .hcard{border:1px solid var(--line);border-radius:14px;padding:18px 20px;display:grid;gap:6px;min-width:0}
@@ -200,7 +201,7 @@ ol.route{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:r
 .hcard.pera .eyebrow{color:var(--itp-blue-dk)}
 .hcard dl{margin:0;display:grid;gap:8px}
 .hcard dl div{display:grid;grid-template-columns:86px minmax(0,1fr);gap:10px}
-.hcard dt{font:600 .7rem/1.6 var(--font-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.hcard dt{font:700 .7rem/1.6 var(--font);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
 .hcard dd{margin:0;font-weight:600;color:var(--ink);overflow-wrap:anywhere}
 @media (max-width:860px){.help{grid-template-columns:1fr}}
 
@@ -209,13 +210,13 @@ ol.route{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:r
 .pass{border:1px solid var(--line);border-radius:16px;padding:24px;display:grid;gap:14px;align-content:start}
 .pass.day{border:2px solid var(--itp-red)}
 .pass.flexi{border:2px solid var(--itp-blue)}
-.pass .kind{font:700 .72rem/1.2 var(--font-mono);letter-spacing:.08em;text-transform:uppercase}
+.pass .kind{font:800 .75rem/1.2 var(--font);letter-spacing:.08em;text-transform:uppercase}
 .pass.day .kind{color:var(--itp-red)}.pass.flexi .kind{color:var(--itp-blue-dk)}
 .pass h3{font-size:1.45rem;font-weight:800}
 .pass .price{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;padding-block:12px;border-block:1px dashed var(--line-strong)}
-.pass .price b{font:800 1.9rem/1 var(--font-display);color:var(--ink)}
+.pass .price b{font:800 1.9rem/1 var(--font);color:var(--ink)}
 .pass .price span{font-size:.88rem;color:var(--muted)}
-.pass .save{font:700 .82rem/1.2 var(--font-mono);color:var(--ok);background:var(--ok-bg);border-radius:999px;padding:5px 10px}
+.pass .save{font:700 .8125rem/1.2 var(--font);color:var(--ok);background:var(--ok-bg);border-radius:999px;padding:5px 10px}
 .pass ul{margin:0;padding:0;list-style:none;display:grid;gap:8px}
 .pass li{position:relative;padding-left:20px;font-size:.95rem}
 .pass li::before{content:"✦";position:absolute;left:0;top:0;font-size:.75rem;color:var(--itp-orange)}
@@ -237,7 +238,7 @@ ol.route{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:r
 .cta-band{background:var(--ink);color:#fff;border-radius:18px;padding:36px;display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between}
 .cta-band h2{color:#fff;max-width:24ch}
 .cta-band .btns{display:flex;flex-wrap:wrap;gap:10px}
-.changelog{font:500 .84rem/1.5 var(--font-mono);color:var(--muted);margin-top:18px}
+.changelog{font:500 .8125rem/1.5 var(--font);color:var(--muted);margin-top:18px}
 @media (max-width:560px){.section{padding-block:52px}.cta-band{padding:26px 22px}.help-main{padding:22px}}
 </style>
 </head>
@@ -305,7 +306,7 @@ ol.route{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:r
 <section class="hero" aria-labelledby="h1">
   <div class="wrap">
     <div class="hero-copy">
-      <p class="eyebrow">About us · Updated <time datetime="2026-10-15">15 October 2026</time></p>
+      <p class="eyebrow">About us · Updated <time datetime="2026-10-19">19 October 2026</time></p>
       <h1 id="h1">About Istanbul Tourist Pass®</h1>
       <p class="answer">Istanbul Tourist Pass® is Istanbul's original tourist pass: one digital pass for 120+ attractions and experiences, from landmarks like Hagia Sophia and Topkapı Palace to guided tours and Bosphorus cruises. We launched it in 2014 as part of istanbul.com®, which has helped travellers explore Istanbul since 1995. The pass is sold by Cityberry, a TÜRSAB-licensed Turkish travel agency (licence No. 11745), and our support team is on WhatsApp 24/7.</p>
       <div class="hero-ctas">
@@ -392,6 +393,10 @@ ol.route{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:r
         <div class="stop-body"><h3>Istanbul Tourist Pass®</h3><p>We launch Istanbul's first and official tourist pass: one digital pass for the city's top attractions.</p></div>
       </li>
       <li class="stop">
+        <span class="yr"><time datetime="2020">2020</time></span><span class="dot" aria-hidden="true"></span>
+        <div class="stop-body"><h3>Show&amp;Go® instant ticketing</h3><p>Our instant ticketing technology: every attraction gets its own QR code, and at many attractions you simply show it at the entrance and skip the ticket line. No printed tickets.</p></div>
+      </li>
+      <li class="stop">
         <span class="yr"><time datetime="2024-07">2024</time></span><span class="dot" aria-hidden="true"></span>
         <div class="stop-body"><h3>The app</h3><p>The Istanbul Tourist Pass® app arrives on the App Store. Today it holds your pass, each attraction's QR code and audio guides, and you can buy your pass in it.</p><span class="src">App Store: first release July 2024</span></div>
       </li>
@@ -403,12 +408,16 @@ ol.route{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:r
         <span class="yr"><time datetime="2026">2026</time></span><span class="dot" aria-hidden="true"></span>
         <div class="stop-body"><h3>Istanbul Flexi Pass®</h3><p>Build your own pass: pick from 1 to 20 attractions and pay only for those. Valid for 5 days from first use.</p></div>
       </li>
+      <li class="stop">
+        <span class="yr"><time datetime="2026">2026</time></span><span class="dot" aria-hidden="true"></span>
+        <div class="stop-body"><h3>Bookberry booking platform</h3><p>We launch Bookberry, our own booking platform.</p></div>
+      </li>
       <li class="stop now">
         <span class="yr"><time datetime="2026">2026</time></span><span class="dot" aria-hidden="true"></span>
         <div class="stop-body"><h3>Today</h3><p>120+ attractions and experiences, WhatsApp support 24/7, and both passes on sale in the app.</p></div>
       </li>
     </ol>
-    <p class="note route-note"><b>Review:</b> years agreed on 15 Oct 2026: Istanbul Tourist Pass 2014, app 2024 (App Store first release 14 July 2024), PERA 2025, Flexi Pass 2026.</p>
+    <p class="note route-note"><b>Review:</b> years agreed on 15 Oct 2026: Istanbul Tourist Pass 2014, app 2024 (App Store first release 14 July 2024), PERA 2025, Flexi Pass 2026. Show&amp;Go 2020 and Bookberry 2026 added by management on 19 Oct 2026. Show&amp;Go text follows our About page and Terms ("skip the ticket lines", QR at the entrance). Bookberry has one line on purpose: add more only once the product description is confirmed.</p>
   </div>
 </section>
 
@@ -567,7 +576,7 @@ ol.route{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:r
       <h2>Join the millions of people who had their perfect Istanbul experience</h2>
       <div class="btns"><a class="btn btn-light" href="https://istanbultouristpass.com/istanbul-pass">See passes and prices</a></div>
     </div>
-    <p class="changelog">Last updated 15 October 2026</p>
+    <p class="changelog">Last updated 19 October 2026</p>
   </div>
 </section>
 </main>
@@ -608,7 +617,7 @@ By continuing your journey on our site, you agree to our <a class="text-[#ccc] u
    "name": "About Istanbul Tourist Pass® | Istanbul's Original Tourist Pass since 2014",
    "description": "Istanbul Tourist Pass® is Istanbul's original tourist pass for 120+ attractions, launched in 2014 by the istanbul.com® team (Istanbul travel since 1995). Sold by a TÜRSAB-licensed agency (No. 11745), with 24/7 WhatsApp support.",
    "inLanguage": "en",
-   "dateModified": "2026-10-15",
+   "dateModified": "2026-10-19",
    "isPartOf": {
     "@id": "https://istanbultouristpass.com/#website"
    },
