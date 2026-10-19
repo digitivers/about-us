@@ -46,6 +46,7 @@ p{margin:0}
 .section-head{display:grid;gap:12px;max-width:760px;margin-bottom:32px}
 .section-head p{max-width:65ch}
 .num{font-variant-numeric:tabular-nums}
+.nw{white-space:nowrap}
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
 /* ---------- Prototype bar ---------- */
@@ -82,7 +83,7 @@ body.review .note{display:block}
 .crumbs{padding-top:22px;font:500 .82rem/1.3 var(--font);color:var(--muted)}
 .crumbs ol{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
 .crumbs li+li::before{content:"›";margin-right:6px;color:var(--line-strong)}
-.crumbs a{color:var(--muted);text-decoration:none}
+.crumbs a{color:var(--muted);text-decoration:none;display:inline-block;padding-block:6px}
 .crumbs a:hover{color:var(--ink)}
 .hero{padding-block:28px 64px}
 .hero .wrap{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:48px;align-items:start}
@@ -96,7 +97,7 @@ body.review .note{display:block}
 .record h2{font:700 .75rem/1.2 var(--font);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
 .record dl{margin:0;display:grid}
 .record .rrow{display:grid;grid-template-columns:118px minmax(0,1fr);gap:12px;padding-block:10px;border-top:1px dashed var(--line-strong)}
-.record dt{font:700 .7rem/1.5 var(--font);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.record dt{font:700 .75rem/1.5 var(--font);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
 .record dd{margin:0;font-weight:600;color:var(--ink);min-width:0;overflow-wrap:anywhere}
 .record dd small{display:block;font-weight:500;color:var(--text);font-size:.84rem}
 .record .note{margin-top:10px}
@@ -121,11 +122,12 @@ body.review .note{display:block}
 .seal-col{display:grid;gap:18px;justify-items:start}
 .seal{width:188px;height:188px;border-radius:50%;border:2px solid var(--itp-red);display:grid;place-items:center;text-align:center;position:relative;transform:rotate(-8deg);background:var(--paper)}
 .seal::before{content:"";position:absolute;inset:8px;border-radius:50%;border:1px dashed var(--itp-red)}
-.seal span{font:800 .78rem/1.35 var(--font);letter-spacing:.08em;text-transform:uppercase;color:var(--itp-red);padding:18px}
+.seal span{font:800 .75rem/1.35 var(--font);letter-spacing:.05em;text-transform:uppercase;color:var(--itp-red);padding:18px}
 .seal b{display:block;font:800 2rem/1 var(--font);letter-spacing:-.02em;margin:6px 0}
 .idea{border-left:3px solid var(--itp-blue);padding:6px 0 6px 18px;font:700 clamp(1.2rem,2.2vw,1.4rem)/1.35 var(--font);color:var(--ink);max-width:30ch}
+.who-copy .idea{color:var(--ink)}
 .idea-by{font:700 .75rem/1.2 var(--font);letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
-@media (max-width:860px){.who{grid-template-columns:1fr}.seal-col{grid-template-columns:auto minmax(0,1fr);align-items:center;gap:24px}.seal{width:132px;height:132px}.seal b{font-size:1.5rem}.seal span{font-size:.66rem;padding:12px}}
+@media (max-width:860px){.who{grid-template-columns:1fr}.seal-col{grid-template-columns:auto minmax(0,1fr);align-items:center;gap:24px}.seal{width:168px;height:168px}.seal b{font-size:1.75rem}.seal span{font-size:.7rem;padding:16px}}
 @media (max-width:480px){.seal-col{grid-template-columns:1fr}}
 
 /* ---------- Timeline: a transit line ---------- */
@@ -184,7 +186,7 @@ ol.route{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:r
 .formats span{font-size:.86rem;line-height:1.4}
 .formats-foot{margin-top:10px;font-size:.9rem;color:var(--muted)}
 @media (max-width:560px){.formats{grid-template-columns:1fr}}
-.seal small{display:block;font:700 .62rem/1.3 var(--font);letter-spacing:.06em;margin-top:2px}
+.seal small{display:block;font:700 .66rem/1.3 var(--font);letter-spacing:.04em;margin-top:2px}
 
 /* ---------- Support ---------- */
 .help{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:14px}
@@ -201,7 +203,8 @@ ol.route{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:r
 .hcard.pera .eyebrow{color:var(--itp-blue-dk)}
 .hcard dl{margin:0;display:grid;gap:8px}
 .hcard dl div{display:grid;grid-template-columns:86px minmax(0,1fr);gap:10px}
-.hcard dt{font:700 .7rem/1.6 var(--font);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+@media (max-width:480px){.hcard dl div{grid-template-columns:1fr;gap:0}}
+.hcard dt{font:700 .75rem/1.6 var(--font);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
 .hcard dd{margin:0;font-weight:600;color:var(--ink);overflow-wrap:anywhere}
 @media (max-width:860px){.help{grid-template-columns:1fr}}
 
@@ -483,7 +486,7 @@ ol.route{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:r
           <p class="eyebrow">Other ways to reach us</p>
           <dl>
             <div><dt>Call</dt><dd>+90 850 304 8726</dd></div>
-            <div><dt>Email</dt><dd>contact@istanbultouristpass.com</dd></div>
+            <div><dt>Email</dt><dd>contact@<wbr>istanbultouristpass.com</dd></div>
             <div><dt>Messenger</dt><dd>m.me/istanbultouristpass</dd></div>
           </dl>
         </div>
@@ -557,7 +560,7 @@ ol.route{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:r
       <div class="qa"><h3>When was Istanbul Tourist Pass® launched?</h3><p>In 2014. It was Istanbul's first and official tourist pass, created by the team behind istanbul.com®.</p></div>
       <div class="qa"><h3>Is Istanbul Tourist Pass® a licensed seller?</h3><p>Yes. The pass is sold by a TÜRSAB member travel agency (licence No. 11745), and its terms are governed by the laws of the Republic of Türkiye, with Istanbul courts as the place for disputes.</p></div>
       <div class="qa"><h3>How is Istanbul Tourist Pass® related to istanbul.com®?</h3><p>Istanbul Tourist Pass® is the sightseeing pass of istanbul.com®, built and run by the same Istanbul team since 2014. istanbul.com® is our travel platform for the whole city.</p></div>
-      <div class="qa"><h3>How do I get help during my trip?</h3><p>Message us on WhatsApp at +90 530 385 20 26, 24 hours a day, 7 days a week. You can also ask PERA, our AI assistant on the website, call +90 850 304 8726 or email contact@istanbultouristpass.com.</p></div>
+      <div class="qa"><h3>How do I get help during my trip?</h3><p>Message us on WhatsApp at <span class="nw">+90 530 385 20 26</span>, 24 hours a day, 7 days a week. You can also ask PERA, our AI assistant on the website, call <span class="nw">+90 850 304 8726</span> or email contact@istanbultouristpass.com.</p></div>
       <div class="qa"><h3>Can I buy the pass in the app?</h3><p>Yes. You can buy both the Day Pass and Flexi Pass in the Istanbul Tourist Pass® app for iOS and Android, and use the same app to show each attraction's QR code.</p></div>
       <div class="qa"><h3>How long is Istanbul Tourist Pass® valid?</h3><p>Up to one year from purchase. The pass activates when you first use it, and each day runs to midnight rather than for 24 hours.</p></div>
       <div class="qa"><h3>Is Istanbul Tourist Pass® the same as the Museum Pass Istanbul?</h3><p>No. The Museum Pass Istanbul is a separate, government-issued museum card. Istanbul Tourist Pass® is a private sightseeing pass sold by Cityberry Tourism, and it also includes guided tours and Bosphorus cruises.</p></div>
